@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h1>Dashboard Admin</h1>
+    <a href="/api/login.js?logout=1">Logout</a>
+</header>
+
+<main>
+<h2>Produk</h2>
+<form action="/api/produk.js" method="POST" enctype="multipart/form-data">
+    <input type="text" name="nama" placeholder="Nama Produk" required>
+    <textarea name="deskripsi" placeholder="Deskripsi"></textarea>
+    <input type="number" name="harga" placeholder="Harga">
+    <input type="file" name="foto" required>
+    <button type="submit">Tambah Produk</button>
+</form>
+<table>
+<tr><th>Nama</th><th>Edit</th><th>Hapus</th></tr>
+<% produk.forEach(p => { %>
+<tr>
+    <td><%= p.nama %></td>
+    <td><a href="/api/produk.js?edit=<%= p.id %>">Edit</a></td>
+    <td><a href="/api/produk.js?delete=<%= p.id %>">Hapus</a></td>
+</tr>
+<% }) %>
+</table>
+
+<h2>Testimoni</h2>
+<form action="/api/testimoni.js" method="POST">
+    <input type="text" name="nama" placeholder="Nama" required>
+    <textarea name="pesan" placeholder="Pesan" required></textarea>
+    <button type="submit">Tambah Testimoni</button>
+</form>
+<table>
+<tr><th>Nama</th><th>Edit</th><th>Hapus</th></tr>
+<% testimoni.forEach(t => { %>
+<tr>
+    <td><%= t.nama %></td>
+    <td><a href="/api/testimoni.js?edit=<%= t.id %>">Edit</a></td>
+    <td><a href="/api/testimoni.js?delete=<%= t.id %>">Hapus</a></td>
+</tr>
+<% }) %>
+</table>
+</main>
+</body>
+</html>

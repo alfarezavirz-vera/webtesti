@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/testimoni">Testimoni</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Testimoni Pelanggan</h1>
+    <div class="testimoni-grid">
+        <% testimoni.forEach(t => { %>
+        <div class="testimoni-card">
+            <h3><%= t.nama %></h3>
+            <p><%= t.pesan %></p>
+            <small><%= t.tanggal %></small>
+        </div>
+        <% }) %>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2026 Bisnis Kami. Semua hak dilindungi.</p>
+</footer>
+</body>
+</html>
